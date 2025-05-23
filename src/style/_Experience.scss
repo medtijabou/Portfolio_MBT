@@ -1,44 +1,97 @@
+#experience{
+    background-color:   #1e293b;
+}
 .experience-section {
-  padding: 3rem 1rem;
-  background-color: #1e293b; /* slate-800 */
-  color: #e0f2fe; /* sky-100 */
-}
-
-.experience-title {
-  text-align: center;
-  font-size: 2rem;
-  color: #38bdf8; /* sky-400 */
-  margin-bottom: 2rem;
-}
-
-.experience-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 800px;
+  position: relative;
+  padding: 2rem 1rem;
   margin: 0 auto;
+  
+}
+.experience-title{
+text-align: center;
+color:#0ea5e9;
+font-size: 2rem;
+padding: 15px;
+margin-bottom: 20px;
+}
+.experience-list {
+  position: relative;
+  padding: 2rem ;
 }
 
+/* barre verticale centrale */
+.experience-list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+background-color:rgb(3 105 161 / 0.5);
+  border-radius: 2px;
+  z-index: 1;
+  
+}
+
+/* carte générique */
 .experience-card {
-  background: #0f172a; /* slate-900 */
-  border: 1px solid #0284c7; /* sky-700 */
-  padding: 1rem;
+  position: relative;
+  width: 40%;
+  padding: 2rem 1.5rem;
+  background: #0f1721; /* slate-800 */
   border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.2);
+  margin-bottom: 2rem;
+  z-index: 2;
+  border: 1px solid #0284c7;
+  transition: box-shadow 0.3s ease;
+}
+.experience-card:hover {
+  box-shadow: 0 0 25px rgb(56 189 248 / 0.5); /* sky-500/30 */
 }
 
+/* côté droit */
+.experience-card.right {
+  margin-left: 55%;
+  
+}
+
+/* côté gauche */
+.experience-card.left {
+    margin-right: 55%;
+    margin-left: 80px;
+
+}
+
+
+/* position cercle à droite ou gauche */
+.experience-card.right::before {
+  left: -32px;
+}
+
+.experience-card.left::before {
+  right: -32px;
+}
+
+/* styles textes */
 .experience-date {
   font-size: 0.9rem;
-  color: #7dd3fc; /* sky-300 */
-  margin-bottom: 0.25rem;
+  color: #38bdf8; /* sky-400 */
+  margin-bottom: 0.3rem;
+  display: flex;
+  gap: 5px;
 }
 
 .experience-role {
-  font-size: 1.2rem;
-  color: #38bdf8;
-  margin: 0.2rem 0;
+  font-weight: bold;
+--tw-text-opacity: 1;
+ color: rgb(125 211 252 / var(--tw-text-opacity, 1));
+ margin-bottom: 0.3rem;
 }
 
+
 .experience-company {
-  font-size: 0.95rem;
-  color: #cbd5e1; /* slate-300 */
+  font-size: 1rem;
+  color: #94a3b8; /* slate-400 */
 }
