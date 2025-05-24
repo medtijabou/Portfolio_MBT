@@ -28,13 +28,13 @@ const HeroSimpleNoMotion = () => {
         >
           <Download size={18} /> Mes Projets
         </a>
-        <a href="#contact" className="btn btn-outline">
+        <a href="mailto:tijarim7@gmail.com?subject=Contact%20depuis%20portfolio&body=Bonjour%20Mohamed,%0AJe%20souhaite%20vous%20contacter%20à%20propos%20de..." className="btn btn-outline">
           Contactez-moi
         </a>
       </div>
 
       <div className="hero-social">
-        <a href="#" aria-label="Linkedin" className="social-link">
+        <a href="https://www.instagram.com/medojosverdes/" aria-label="Linkedin" className="social-link">
           <Linkedin size={28} />
         </a>
         <a href="#" aria-label="Github" className="social-link">
