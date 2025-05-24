@@ -96,7 +96,9 @@
   gap: 10px;
 }
 
-.project-button {
+.project-button{
+  display: flex;
+  justify-content: center;
   margin: 1rem;
   padding: 0.5rem 0;
   border: 1.5px solid #0ea5e9;
