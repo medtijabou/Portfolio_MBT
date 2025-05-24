@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { User, Mail, Phone, MapPin, Calendar, ShieldCheck } from "lucide-react";
 
 const About = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(true);
+      window.removeEventListener("scroll", handleScroll); // Active une seule fois
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const personalInfo = [
     {
       icon: <MapPin className="icon" />,
@@ -31,14 +42,20 @@ const About = () => {
       <div className="container">
         <h2 className="title">À Propos de Moi</h2>
         <div className="card">
-          <h3 className="info-perso">
+          <h3 className={`info-perso ${scrolled ? "slide-in" : ""}`}>
             <User className="title-icon" />
             Informations Personnelles
           </h3>
 
           <div className="info-list">
             {personalInfo.map((item, i) => (
-              <div key={i} className="info-item">
+              <div
+                key={i}
+                className={`info-item ${scrolled ? "slide-in" : ""}`}
+                style={{
+                  animationDelay: `${i * 0.3}s`,
+                }}
+              >
                 <span className="icon">{item.icon}</span>
                 <div>
                   <p className="label">{item.label}:</p>
@@ -48,13 +65,11 @@ const About = () => {
             ))}
           </div>
           <p className="description">
-            Fort d'une expérience diversifiée en plomberie, chauffage et
-            sécurité incendie, j'ai récemment réorienté ma carrière vers le
-            développement web. Diplômé Intégrateur Web (Bac+2) chez
-            OpenClassrooms, je suis passionné par la création d'interfaces
-            utilisateur dynamiques et performantes avec React et les
-            technologies modernes du web. Je suis motivé, autonome et prêt à
-            relever de nouveaux défis.
+            Fort d'une expérience diversifiée en plomberie, chauffage et sécurité incendie,
+            j'ai récemment réorienté ma carrière vers le développement web. Diplômé Intégrateur Web
+            (Bac+2) chez OpenClassrooms, je suis passionné par la création d'interfaces utilisateur
+            dynamiques et performantes avec React et les technologies modernes du web. Je suis
+            motivé, autonome et prêt à relever de nouveaux défis.
           </p>
         </div>
       </div>

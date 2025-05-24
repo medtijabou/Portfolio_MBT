@@ -1,7 +1,7 @@
 .about-section {
   padding: 4rem 1rem;
-  background-color: #1e293b; 
-  color: #cbd5e1; 
+  background-color: #1e293b;
+  color: #cbd5e1;
   font-family: Arial, sans-serif;
 }
 
@@ -12,8 +12,7 @@
 
 .title {
   font-size: 2.5rem;
-  
-  color: #0ea5e9; /* sky-400 */
+  color: #0ea5e9;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -25,20 +24,24 @@
 .title-icon {
   width: 2rem;
   height: 2rem;
-  color: #0ea5e9; /* lighter sky */
+  color: #0ea5e9;
 }
-.info-perso{
+
+.info-perso {
   font-size: 24px;
   display: flex;
   align-items: center;
-  margin-bottom:25px;
+  margin-bottom: 25px;
   margin-left: -5px;
-  color:  #7dd3fc;
+  color: #7dd3fc;
   gap: 10px;
+  opacity: 0;
+  transform: translateX(-50px);
 }
+
 .card {
-  background-color: rgba(15, 23, 42, 0.8); /* slate-900 + transparency */
-  border: 2px solid #0284c7; /* sky-700 */
+  background-color: rgba(15, 23, 42, 0.8);
+  border: 2px solid #0284c7;
   border-radius: 0.5rem;
   padding: 2rem;
   box-shadow: 0 10px 15px rgba(2, 132, 199, 0.4);
@@ -54,6 +57,8 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  opacity: 0;
+  transform: translateX(-50px);
 }
 
 .icon {
@@ -66,7 +71,7 @@
 
 .label {
   font-weight: 600;
-  color: #7dd3fc; /* sky-300 */
+  color: #7dd3fc;
   margin-bottom: 0.25rem;
 }
 
@@ -80,28 +85,20 @@
   color: #cbd5e1;
   font-size: 1.1rem;
 }
-@keyframes fadeSlideIn {
+
+/* Animation glissement gauche */
+@keyframes slideInLeft {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(-50px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-/* Animation pour l'ensemble de la section */
-.about-section {
-  animation: fadeSlideIn 0.8s ease forwards;
+/* Classe déclenchée depuis React */
+.slide-in {
+  animation: slideInLeft 0.6s ease forwards;
 }
-
-/* Animation pour chaque item avec délai */
-.info-item {
-  opacity: 0;
-  animation: fadeSlideIn 0.5s ease forwards;
-  animation-delay: var(--delay);
-}
-
-/* Utilisation JS pour gérer le delay */
-
