@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Wrench, Flame, Code, Languages, CheckCircle } from "lucide-react";
-
 
 const skillsData = {
   webDevelopment: {
@@ -63,12 +62,37 @@ const skillsData = {
 };
 
 const Skills = () => {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="skills" className="skills-section">
+    <section id="skills" className="skills-section" ref={sectionRef}>
       <h2 className="skills-title">Mes Compétences</h2>
       <div className="skills-grid">
         {Object.values(skillsData).map((category, idx) => (
-          <div key={idx} className="skills-card">
+          <div
+            key={idx}
+            className={`skills-card ${visible ? "visible" : ""}`}
+            style={{ animationDelay: `${idx * 0.15}s` }}
+          >
             <div className="skills-header">
               {category.icon}
               <h3 className="skills-category">{category.title}</h3>
