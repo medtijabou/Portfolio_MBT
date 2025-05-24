@@ -1,13 +1,16 @@
 import React from 'react';
+import BoulyouImg from '../assets/Boulyou.webp'; // chemin relatif au fichier .jsx
+
+
 
 import { Download, Linkedin, Github } from 'lucide-react';
 
 
 const HeroSimpleNoMotion = () => {
   return (
-    <section className="hero-simple no-motion">
+    <section id="home" className="hero-simple no-motion">
       <img
-        src="https://images.unsplash.com/photo-1521401369685-c0e0208aee8b"
+        src={BoulyouImg}
         alt="Mohamed Boulyou"
         className="hero-img"
       />

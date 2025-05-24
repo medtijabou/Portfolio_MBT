@@ -1,6 +1,4 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-
 
 function Navbar() {
   useEffect(() => {
@@ -20,15 +18,15 @@ function Navbar() {
   return (
     <header>
       <nav>
-        <Link to="/" className="logo">
+        <a href="#home" className="logo">
           MB / Portfolio
-        </Link>
+        </a>
         <div className="nav-links">
-          <Link to="/about">À Propos</Link>
-          <Link to="/skills">Compétences</Link>
-          <Link to="/experience">Expériences</Link>
-          <Link to="/education">Formation</Link>
-          <Link to="/projects">Projets</Link>
+          <a href="#about">À Propos</a>
+          <a href="#skills">Compétences</a>
+          <a href="#experience">Expériences</a>
+          <a href="#education">Formation</a>
+          <a href="#projects">Projets</a>
         </div>
       </nav>
     </header>
