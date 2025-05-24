@@ -28,7 +28,7 @@ margin-bottom: 20px;
   transform: translateX(-50%);
   width: 4px;
   height: 100%;
-background-color:rgb(3 105 161 / 0.5);
+ background-color:rgb(3 105 161 / 0.5);
   border-radius: 2px;
   z-index: 1;
   
@@ -48,8 +48,12 @@ background-color:rgb(3 105 161 / 0.5);
   transition: box-shadow 0.3s ease;
 }
 .experience-card:hover {
-  box-shadow: 0 0 25px rgb(56 189 248 / 0.5); /* sky-500/30 */
+    box-shadow: 
+    -5px 5px 15px rgba(56, 189, 248, 0.1), 
+     5px 5px 15px rgba(56, 189, 248, 0.1),  
+     0px 10px 15px rgba(56, 189, 248, 0.2);
 }
+
 
 /* côté droit */
 .experience-card.right {
@@ -60,7 +64,7 @@ background-color:rgb(3 105 161 / 0.5);
 /* côté gauche */
 .experience-card.left {
     margin-right: 55%;
-    margin-left: 80px;
+    margin-left: 60px;
 
 }
 

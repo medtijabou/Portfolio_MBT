@@ -3,6 +3,7 @@ import Banner from '../components/Banner';
 import About from '../components/About';
 import Competence from '../components/Competence';
 import Experience from '../components/Experience';
+import Education from '../components/Education';
 function Home() {
   return (
     <div>
@@ -11,6 +12,7 @@ function Home() {
         <About />
         <Competence />
         <Experience />
+        <Education />
     </div>
   );
 }

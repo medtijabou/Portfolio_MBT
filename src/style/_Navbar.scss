@@ -1,8 +1,6 @@
-// styles/Navbar.scss
-
-$bg-color:rgb(2, 8, 23); // Couleur de fond avec opacité
-$hover-color: #38bdf8; // sky-400
-$text-color: #cbd5e1; // slate-300
+$bg-color: rgb(2, 8, 23);
+$hover-color: #38bdf8;
+$text-color: #cbd5e1;
 $border-color: rgba(255, 255, 255, 0.1);
 
 header {
@@ -13,6 +11,11 @@ header {
   border-bottom: 1px solid $border-color;
   background-color: $bg-color;
   backdrop-filter: blur(8px);
+  transition: background-color 0.2s ease;
+
+  &.scrolled {
+    background-color: rgba(2, 8, 23, 0); // plus transparent au scroll
+  }
 
   nav {
     display: flex;

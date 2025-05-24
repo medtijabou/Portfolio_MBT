@@ -20,7 +20,7 @@ const Experience = () => {
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className={`experience-card ${index % 2 === 0 ? "right" : "left"}`}
+            className={`experience-card ${index % 2 === 0 ? "left" : "right"}`}
           >
             <p className="experience-date">
   <span className="calendar-icon" dangerouslySetInnerHTML={{ __html: `

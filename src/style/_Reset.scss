@@ -1,4 +1,5 @@
 /* Reset CSS moderne - basé sur Josh Comeau / Andy Bell */
+$bg-color: rgb(2, 8, 23);
 *,
 *::before,
 *::after {
@@ -10,7 +11,7 @@
 html, body {
   height: 100%;
   font-family: system-ui, sans-serif;
-  background-color: #fff;
+ background-color: $bg-color;
   color: #000;
 }
 
