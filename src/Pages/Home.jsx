@@ -4,20 +4,21 @@ import About from '../components/About';
 import Competence from '../components/Competence';
 import Experience from '../components/Experience';
 import Education from '../components/Education';
-import Projects from '../components/Projtes';
+import ProjectsG from '../components/ProjtesG';
+import projects from '../Data/projects-data';
 import Footer from '../components/Footer';
 function Home() {
   return (
-    <div>
+    <main>
         <Header />
         <Banner />
         <About />
         <Competence />
         <Experience />
         <Education />
-        <Projects />
+        <ProjectsG projects={projects} />
         <Footer />
-    </div>
+    </main>
   );
 }
 
