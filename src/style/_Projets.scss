@@ -1,67 +1,90 @@
+/* ProjectsCarousel.css */
+
 .carousel-section {
   min-height: 100vh;
-  padding: 4rem 1rem 15rem;
+  padding: 4rem 1rem 6rem;
   background-color: #0f172a;
   color: #e2e8f0;
   text-align: center;
 
-  
 }
 
 .carousel-title {
   font-size: 2rem;
   color: #38bdf8;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem
 }
 
 .carousel-wrapper {
-  perspective: 1000px;
-  height: 500px;
-  position: relative;
+  position: relative; /* Important pour que les enfants en absolute se positionnent par rapport à lui */
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center; /* Centre les éléments dans l'espace disponible */
+  align-items: center; /* Centre verticalement les éléments */
+
+  padding: 2rem 0; /* Garde votre padding existant */
 }
 
 .carousel {
-  width: 100%;
-  height: 100%;
+  /* Ce conteneur n'a plus besoin d'être flex car les items sont positionnés absolument */
   position: relative;
-  transform-style: preserve-3d;
-  transition: transform 1s ease;
+  width: 100%; /* S'étale sur toute la largeur du wrapper */
+  height: 100%; /* S'étale sur toute la hauteur du wrapper */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-item {
-  position: absolute;
-  width: 275px;
-  height: 550px;
-  left: 50%;
-  top: 50%;
-  transform-origin: center center;
-  transform-style: preserve-3d;
-  margin: -200px 0 0 -150px; /* centrer */
+  position: absolute; /* Gardez ceci */
+  /* left et top de 50% sont nécessaires pour que le translate(-50%, -50%) fonctionne bien */
+ 
+
+  /* RETIRER : transform: translate(-50%, -50%); - C'est maintenant géré dans getTransformStyle du JS */
+  width: 275px; /* Largeur fixe de l'item */
+  height: 420px; /* Hauteur fixe de l'item */
   background: rgba(30, 41, 59, 0.95);
   border: 2px solid #0ea5e9;
   border-radius: 1rem;
   box-shadow: 0 10px 20px rgba(14, 165, 233, 0.5);
   padding: 1rem;
+  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  backface-visibility: hidden;
+}
+
+.carousel-item.active {
+  border-color: #38bdf8;
+  box-shadow: 0 15px 30px rgba(56, 189, 248, 0.7);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 0.5rem;
+  object-fit: cover;
 }
 
 .carousel-item h3 {
-  color: #7dd3fc;
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: #38bdf8;
+}
+
+.carousel-item p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
 .carousel-item a {
-  margin-top: 1rem;
-  padding: 0.5rem;
-  background-color: #0284c7;
+  display: inline-block;
+  background-color: #0ea5e9;
   color: white;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   text-decoration: none;
-  font-weight: 600;
   transition: background 0.3s;
 }
 
@@ -69,33 +92,61 @@
   background-color: #0369a1;
 }
 
+/* Contrôles de navigation */
 .controls {
-  margin-top: 9rem;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  position: absolute;
+  width: 90%; /* Pour qu'ils s'étirent sur la largeur du wrapper */
+  bottom:  -9%; /* Positionne verticalement au centre du wrapper */
+  transform: translateY(-50%); /* Ajuste pour centrer parfaitement */
+  z-index: 20; /* Pour s'assurer qu'ils sont au-dessus des items */
 }
 
 .controls button {
-  margin: 0 1rem;
   padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-  background: #0ea5e9;
+  background-color: rgba(14, 165, 233, 0.7);
   border: none;
   color: white;
+  font-size: 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
   transition: background 0.3s;
-
-
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.controls button:hover {
-  background: #0369a1;
+.controls button:hover:enabled {
+  background-color: #0369a1;
 }
-.carousel-item a {
-  pointer-events: auto;
-  z-index: 2;
-  position: relative;
+.controls button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
 }
 
-.carousel-item {
-  pointer-events: auto;
+/* Pagination / Indicateurs */
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.pagination-dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.pagination-dot:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.pagination-dot.active {
+  background-color: #38bdf8;
+  transform: scale(1.2);
 }
