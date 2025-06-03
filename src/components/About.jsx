@@ -7,7 +7,7 @@ const About = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(true);
-      window.removeEventListener("scroll", handleScroll); // Active une seule fois
+      window.removeEventListener("scroll", handleScroll); // une seule fois
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -52,9 +52,7 @@ const About = () => {
               <div
                 key={i}
                 className={`info-item ${scrolled ? "slide-in" : ""}`}
-                style={{
-                  animationDelay: `${i * 0.3}s`,
-                }}
+                style={{ animationDelay: `${i * 0.3}s` }}
               >
                 <span className="icon">{item.icon}</span>
                 <div>

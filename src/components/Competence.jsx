@@ -84,6 +84,7 @@ const Skills = () => {
   }, []);
 
   return (
+  
     <section id="skills" className="skills-section" ref={sectionRef}>
       <h2 className="skills-title">Mes Compétences</h2>
       <div className="skills-grid">
@@ -108,6 +109,7 @@ const Skills = () => {
         ))}
       </div>
     </section>
+    
   );
 };
 
