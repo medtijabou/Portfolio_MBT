@@ -97,8 +97,10 @@
 }
 
 .btn-primary:hover {
-  background-color: #06b6d4;
-  transform: scale(1.05);
+  background-color: #0f172a;
+
+   color: #38bdf8;
+   border: 2px solid #38bdf8;;
 }
 
 .btn-outline {
@@ -150,5 +152,10 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+@media (max-width:768px){
+  .hero-title {
+    font-size: 2rem;
   }
 }

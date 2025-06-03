@@ -1,34 +1,59 @@
-import React, { useState, useCallback } from 'react';
-
 import projectsData from '../Data/projects-data';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+// ...
 
 const ProjectsCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const ITEM_WIDTH = 275;
+  const [itemWidth, setItemWidth] = useState(window.innerWidth <= 768 ? 220 : 275);
   const ITEM_GAP_PX = 32;
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
+  // Resize
+  useEffect(() => {
+    const handleResize = () => {
+      setItemWidth(window.innerWidth <= 768 ? 220 : 275);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Swipe logique
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.changedTouches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+
+    const distance = touchStartX.current - touchEndX.current;
+    const threshold = 50; // px
+
+    if (distance > threshold) {
+      next();
+    } else if (distance < -threshold) {
+      prev();
+    }
+  };
+
+  // prev / next
   const prev = useCallback(() => {
-    setActiveIndex((prevIndex) => (prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [projectsData.length]);
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1
+    );
+  }, []);
 
   const next = useCallback(() => {
-    setActiveIndex((prevIndex) => (prevIndex === projectsData.length - 1 ? 0 : prevIndex + 1));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [projectsData.length]);
+    setActiveIndex((prevIndex) =>
+      prevIndex === projectsData.length - 1 ? 0 : prevIndex + 1
+    );
+  }, []);
 
-  // ANCIEN CODE POUR LE DÉFILEMENT AUTOMATIQUE (À SUPPRIMER OU COMMENTER)
-  /*
-  useEffect(() => {
-    const autoScroll = setInterval(() => {
-      next();
-    }, 5000); // Change de projet toutes les 5 secondes
-    return () => clearInterval(autoScroll); // Nettoie le timer quand le composant est démonté
-  }, [next]);
-  */
-
-  // LAISSEZ TOUT LE RESTE DU CODE INCHANGÉ
   const getTransformStyle = (index) => {
     const total = projectsData.length;
     let position = index - activeIndex;
@@ -39,12 +64,10 @@ const ProjectsCarousel = () => {
       position += total;
     }
 
-    const transformXValue = position * (ITEM_WIDTH + ITEM_GAP_PX);
+    const transformXValue = position * (itemWidth + ITEM_GAP_PX);
     const distance = Math.abs(position);
 
-    let scale = 1;
-    let opacity = 1;
-    let zIndex = 5;
+    let scale = 1, opacity = 1, zIndex = 5;
 
     if (distance === 0) {
       scale = 1.1;
@@ -65,16 +88,20 @@ const ProjectsCarousel = () => {
 
     return {
       transform: `translateX(${transformXValue}px) scale(${scale})`,
-      opacity: opacity,
-      zIndex: zIndex,
+      opacity,
+      zIndex,
       pointerEvents: distance <= 2 ? 'auto' : 'none',
     };
   };
 
   return (
-    <section className="carousel-section" aria-live="polite" aria-label="Carrousel de projets">
+    <section className="carousel-section" id="projects">
       <h2 className="carousel-title">Mes Projets</h2>
-      <div className="carousel-wrapper">
+      <div
+        className="carousel-wrapper"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="carousel">
           {projectsData.map((project, index) => (
             <div
@@ -83,29 +110,28 @@ const ProjectsCarousel = () => {
               style={{
                 ...getTransformStyle(index),
                 transition: 'transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease',
+                width: `${itemWidth}px`,
               }}
               role="group"
-              aria-roledescription="slide"
               aria-label={`${project.title} - Projet ${index + 1} sur ${projectsData.length}`}
             >
               <img src={project.imageUrl} alt={project.title} className="project-image" />
               <h3>{project.title}</h3>
               <p>{project.description}</p>
-              <a href={project.link} target="_blank" rel="noreferrer noopener" aria-label={`Voir le projet ${project.title}`}>
+              <a href={project.link} target="_blank" rel="noreferrer noopener">
                 Voir le projet
               </a>
             </div>
           ))}
         </div>
+
+        {/* Contrôles visibles que sur desktop */}
         <div className="controls">
-          <button onClick={prev} aria-label="Projet précédent">
-            &#9664; {/* Flèche gauche */}
-          </button>
-          <button onClick={next} aria-label="Projet suivant">
-            &#9654; {/* Flèche droite */}
-          </button>
+          <button onClick={prev} aria-label="Projet précédent">&#9664;</button>
+          <button onClick={next} aria-label="Projet suivant">&#9654;</button>
         </div>
       </div>
+
       <div className="carousel-pagination">
         {projectsData.map((_, index) => (
           <button

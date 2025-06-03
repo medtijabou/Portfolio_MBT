@@ -150,3 +150,14 @@
   background-color: #38bdf8;
   transform: scale(1.2);
 }
+.pagination-dot.active {
+  background-color: #38bdf8;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px 3px rgba(56, 189, 248, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .controls {
+    display: none;
+  }
+}

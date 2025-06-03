@@ -21,6 +21,9 @@
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .skills-section{
+    padding: 1rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -94,5 +97,10 @@
   100% {
     opacity: 1;
     transform: sclae(1);
+  }
+}
+@media (max-width:768px){
+  .skills-section{
+    padding: 1rem;
   }
 }

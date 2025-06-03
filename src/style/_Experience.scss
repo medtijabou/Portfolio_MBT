@@ -101,3 +101,20 @@
   transform: translateX(0);
   opacity: 1;
 }
+
+@media (max-width:768px){
+  .experience-role{
+    font-size: 14px;
+  }
+
+  .experience-card{
+    width: 56%;
+    padding: 15px;
+  }
+  .experience-card.left{
+    margin-left: -44px;
+  }
+.experience-company{
+  font-size: 14px;
+}
+}
