@@ -20,6 +20,7 @@
 @media (min-width: 768px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
+    
   }
   .skills-section{
     padding: 1rem;
@@ -40,6 +41,7 @@
   box-shadow: 0 0 15px rgb(2 132 199 / 0.3);
   transition: box-shadow 0.3s ease;
   opacity: 0;
+ 
 }
 
 .skills-card:hover {
@@ -78,6 +80,7 @@
   white-space: nowrap;
   user-select: none;
   transition: background-color 0.3s ease;
+white-space: normal;
 }
 
 .skills-badge:hover {
@@ -103,4 +106,5 @@
   .skills-section{
     padding: 1rem;
   }
+ 
 }

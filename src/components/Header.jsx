@@ -23,13 +23,17 @@ function Navbar() {
   return (
     <header >
       <nav className="navbar">
-      <a href="#" className="logo" onClick={(e) => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  closeMenu(); // si tu veux aussi fermer le menu mobile
-}}>
+      <a
+  href="#top"
+  className="logo"
+  onClick={() => {
+
+    window.scrollTo({ top:0, behavior: 'smooth' });
+  }}
+>
   MB / Portfolio
 </a>
+
 
 
         <div className={`nav-links ${isOpen ? 'open' : ''}`}>

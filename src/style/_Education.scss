@@ -92,3 +92,13 @@
   box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.8);
   transition: box-shadow 0.3s ease;
 }
+.education-container {
+  max-width: 1300px;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 14px;
+  }
+}

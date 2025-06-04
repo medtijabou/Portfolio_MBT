@@ -1,16 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { User, Mail, Phone, MapPin, Calendar, ShieldCheck } from "lucide-react";
 
 const About = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [animate, setAnimate] = useState(false);
+  const infoRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(true);
-      window.removeEventListener("scroll", handleScroll); // une seule fois
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimate(true);
+          observer.disconnect(); // déclenche une seule fois
+        }
+      },
+      { threshold: 0.3 } // 30% visible déclenche l'animation
+    );
+
+    if (infoRef.current) {
+      observer.observe(infoRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   const personalInfo = [
@@ -38,30 +48,31 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="about-section">
+    <section id="about" className="about-section" ref={infoRef}>
       <div className="container">
         <h2 className="title">À Propos de Moi</h2>
         <div className="card">
-          <h3 className={`info-perso ${scrolled ? "slide-in" : ""}`}>
+          <h3 className={`info-perso ${animate ? "animate" : ""}`}>
             <User className="title-icon" />
             Informations Personnelles
           </h3>
 
           <div className="info-list">
-            {personalInfo.map((item, i) => (
-              <div
-                key={i}
-                className={`info-item ${scrolled ? "slide-in" : ""}`}
-                style={{ animationDelay: `${i * 0.3}s` }}
-              >
-                <span className="icon">{item.icon}</span>
-                <div>
-                  <p className="label">{item.label}:</p>
-                  <p className="value">{item.value}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+  {personalInfo.map((item, i) => (
+    <div
+      key={i}
+      className={`info-item ${animate ? "animate" : ""}`}
+      style={{ "--delay": `${i * 0.3}s` }} // <-- ici la variable CSS
+    >
+      <span className="icon">{item.icon}</span>
+      <div>
+        <p className="label">{item.label}:</p>
+        <p className="value">{item.value}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
           <p className="description">
             Fort d'une expérience diversifiée en plomberie, chauffage et sécurité incendie,
             j'ai récemment réorienté ma carrière vers le développement web. Diplômé Intégrateur Web

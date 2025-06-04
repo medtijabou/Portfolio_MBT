@@ -37,7 +37,7 @@ const projects = [
     title: "Créez une page web dynamique avec JavaScript",
     description: "Créez un site dynamique avec JavaScript, communiquant avec une API pour une architecte.",
     duration: "60 heures supervisées",
-    imageUrl: "assets/imageprojets/nina.webp",
+    imageUrl: "assets/imageprojets/sophie.webp",
     link: "https://github.com/medtijabou/P6_sophie_bluel"
   },
   {
@@ -45,7 +45,7 @@ const projects = [
     title: "Créez une application web de location immobilière avec React",
     description: "Implémentez le front end de Kasa avec React et React Router.",
     duration: "60 heures supervisées",
-    imageUrl: "Application React Kasa location immobilière",
+    imageUrl: "assets/imageprojets/kasa.webp",
     link: "https://github.com/medtijabou/P7_Kasa"
   },
   {
@@ -53,7 +53,7 @@ const projects = [
     title: "Optimisez le référencement d'un site de photographe",
     description: "Optimisation SEO et accessibilité pour un site de photographe.",
     duration: "40 heures supervisées",
-    imageUrl: "Optimisation SEO site photographe",
+    imageUrl: "assets/imageprojets/nina.webp",
     link: "https://github.com/medtijabou/P8_Nina_Carduccii"
   },
   {
@@ -61,7 +61,7 @@ const projects = [
     title: "Débuggez le site d'une agence d'événementiel",
     description: "Débuggage du site de l’agence 724events.",
     duration: "60 heures supervisées",
-    imageUrl: "Débuggage site agence 724events",
+    imageUrl: "assets/imageprojets/event724.webp",
     link: "https://github.com/medtijabou/P_9_Debuggez"
   },
   {
@@ -69,7 +69,15 @@ const projects = [
     title: "Implémentez le front-end d'une application bancaire avec React",
     description: "Complétez Argent Bank avec React et Redux, appels API REST.",
     duration: "80 heures supervisées",
-    imageUrl: "Application bancaire React Argent Bank",
+    imageUrl: "assets/imageprojets/argentBankLogo.webp",
+    link: "https://github.com/medtijabou/Projet_p10_Argent_Bank"
+  },
+  {
+    id: "P11",
+    title: "Planifiez le développement du site de votre client",
+    description: "Rédiger les spécifications techniques du projet.",
+    duration: "60 heures supervisées",
+    imageUrl: "assets/imageprojets/Quenta.webp",
     link: "https://github.com/medtijabou/Projet_p10_Argent_Bank"
   }
 ];

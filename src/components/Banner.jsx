@@ -5,7 +5,7 @@ import { Download, Linkedin, Github } from 'lucide-react';
 
 const HeroSimpleNoMotion = () => {
   return (
-    <section className="hero-simple no-motion">
+    <section id='top' className="hero-simple no-motion">
        <img src="assets/Boulyou.webp" 
        alt="Mohamed Boulyou"
         className="hero-img"
