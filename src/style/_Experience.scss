@@ -121,4 +121,7 @@
 .experience-company{
   font-size: 14px;
 }
+.experience-list::before{
+  background-color: transparent;
+}
 }
