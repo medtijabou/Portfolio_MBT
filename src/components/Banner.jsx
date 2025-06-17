@@ -24,7 +24,7 @@ const HeroSimpleNoMotion = () => {
         >
           <Download size={18} /> Mes Projets
         </a>
-        <a href="mailto:tijarim7@gmail.com?subject=Contact%20depuis%20portfolio&body=Bonjour%20Mohamed,%0AJe%20souhaite%20vous%20contacter%20à%20propos%20de..." className="btn btn-outline">
+        <a href="mailto:contact@mstecnologia.fr?subject=Contact%20depuis%20portfolio&body=Bonjour%20Mohamed,%0AJe%20souhaite%20vous%20contacter%20à%20propos%20de..." className="btn btn-outline">
           Contactez-moi
         </a>
       </div>

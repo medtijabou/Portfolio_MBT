@@ -5,7 +5,7 @@ import Home from './Pages/Home';
 
 function App() {
   return (
-    <Router basename="/Portfolio_MBT">
+    <Router>
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />

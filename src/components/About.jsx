@@ -32,7 +32,7 @@ const About = () => {
     {
       icon: <Mail className="icon" />,
       label: "E-mail",
-      value: "Tijarim7@gmail.com",
+      value: "Contact@mstecnologia.fr",
     },
     {
       icon: <Phone className="icon" />,
