@@ -31,7 +31,8 @@ function Navbar() {
     window.scrollTo({ top:0, behavior: 'smooth' });
   }}
 >
-  MB / Portfolio
+M&S <img  src='/assets/robotic.webp' className='logo-robot' alt='logo-de-site'/> tecnologia
+
 </a>
 
 
