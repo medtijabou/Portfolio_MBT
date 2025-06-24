@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Download, Linkedin, Github } from 'lucide-react';
+import { Download,LinkedinIcon, GithubIcon  } from 'lucide-react';
 
 
 const HeroSimpleNoMotion = () => {
@@ -30,12 +30,14 @@ const HeroSimpleNoMotion = () => {
       </div>
 
       <div className="hero-social">
-        <a href="https://www.instagram.com/medojosverdes/" aria-label="Linkedin" className="social-link">
-          <Linkedin size={28} />
-        </a>
-        <a href="#" aria-label="Github" className="social-link">
-          <Github size={28} />
-        </a>
+       <a href="https://www.instagram.com/medojosverdes/" aria-label="Instagram" className="social-link" target="_blank">
+  <LinkedinIcon size={28} />
+</a>
+
+<a href="https://github.com/medtijabou" aria-label="Github" className="social-link" target="_blank">
+  <GithubIcon size={28} />
+</a>
+
       </div>
     </section>
   );
