@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,28 +22,24 @@ function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header >
+    <header>
       <nav className="navbar">
-      <a
-  href="#top"
-  className="logo"
-  onClick={() => {
-
-    window.scrollTo({ top:0, behavior: 'smooth' });
-  }}
->
-M&S <img  src='/assets/robotic.webp' className='logo-robot' alt='logo-de-site'/> tecnologia
-
-</a>
-
-
+        <div
+          className="logo"
+          onClick={() => {
+            scroll.scrollToTop({ duration: 500 });
+            closeMenu();
+          }}
+        >
+          M&S <img src="/assets/robotic.webp" className="logo-robot" alt="logo-de-site" /> tecnologia
+        </div>
 
         <div className={`nav-links ${isOpen ? 'open' : ''}`}>
-          <a href="#about" onClick={closeMenu}>À Propos</a>
-          <a href="#skills" onClick={closeMenu}>Compétences</a>
-          <a href="#experience" onClick={closeMenu}>Expériences</a>
-          <a href="#education" onClick={closeMenu}>Formation</a>
-          <a href="#projects" onClick={closeMenu}>Projets</a>
+          <ScrollLink to="about" smooth={true} duration={500} onClick={closeMenu}>À Propos</ScrollLink>
+          <ScrollLink to="skills" smooth={true} duration={500} onClick={closeMenu}>Compétences</ScrollLink>
+          <ScrollLink to="experience" smooth={true} duration={500} onClick={closeMenu}>Expériences</ScrollLink>
+          <ScrollLink to="education" smooth={true} duration={500} onClick={closeMenu}>Formation</ScrollLink>
+          <ScrollLink to="projects" smooth={true} duration={500} onClick={closeMenu}>Projets</ScrollLink>
         </div>
 
         <button className="burger" onClick={() => setIsOpen(!isOpen)}>
