@@ -10,7 +10,7 @@ $bg-color: rgb(2, 8, 23);
 
 html, body {
   width: 100%;
-  
+   overflow-x: clip;
   height: 100%;
   font-family: system-ui, sans-serif;
  background-color: $bg-color;
@@ -18,8 +18,9 @@ html, body {
 }
 html {
   scroll-behavior: smooth;
-  
+ 
 }
+
 
 
 img, picture, video, canvas, svg {

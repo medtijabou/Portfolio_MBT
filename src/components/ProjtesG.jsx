@@ -60,7 +60,7 @@ const ProjectsCarousel = () => {
 
     if (position > total / 2) {
       position -= total;
-    } else if (position < -total / 2) {
+    } else if (position < -total / 2) { 
       position += total;
     }
 

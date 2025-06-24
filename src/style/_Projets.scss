@@ -2,10 +2,12 @@
 
 .carousel-section {
   min-height: 100vh;
+  width: 100%;
   padding: 4rem 1rem 6rem;
   background-color: #0f172a;
   color: #e2e8f0;
   text-align: center;
+  overflow-x: clip;
 
 }
 
@@ -22,7 +24,7 @@
   display: flex;
   justify-content: center; /* Centre les éléments dans l'espace disponible */
   align-items: center; /* Centre verticalement les éléments */
-
+ overflow-x: hidden;
   padding: 2rem 0; /* Garde votre padding existant */
 }
 
