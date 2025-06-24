@@ -27,7 +27,7 @@ function Navbar() {
         <div
           className="logo"
           onClick={() => {
-            scroll.scrollToTop({ duration: 500 });
+            scroll.scrollToTop({ duration: 0 });
             closeMenu();
           }}
         >
@@ -35,11 +35,11 @@ function Navbar() {
         </div>
 
         <div className={`nav-links ${isOpen ? 'open' : ''}`}>
-          <ScrollLink to="about" smooth={true} duration={500} onClick={closeMenu}>À Propos</ScrollLink>
-          <ScrollLink to="skills" smooth={true} duration={500} onClick={closeMenu}>Compétences</ScrollLink>
-          <ScrollLink to="experience" smooth={true} duration={500} onClick={closeMenu}>Expériences</ScrollLink>
-          <ScrollLink to="education" smooth={true} duration={500} onClick={closeMenu}>Formation</ScrollLink>
-          <ScrollLink to="projects" smooth={true} duration={500} onClick={closeMenu}>Projets</ScrollLink>
+          <ScrollLink to="about" smooth={true} duration={0} onClick={closeMenu}>À Propos</ScrollLink>
+          <ScrollLink to="skills" smooth={true} duration={0} onClick={closeMenu}>Compétences</ScrollLink>
+          <ScrollLink to="experience" smooth={true} duration={0} onClick={closeMenu}>Expériences</ScrollLink>
+          <ScrollLink to="education" smooth={true} duration={0} onClick={closeMenu}>Formation</ScrollLink>
+          <ScrollLink to="projects" smooth={true} duration={0} onClick={closeMenu}>Projets</ScrollLink>
         </div>
 
         <button className="burger" onClick={() => setIsOpen(!isOpen)}>
