@@ -41,3 +41,19 @@ ul[role='list'],
 ol[role='list'] {
   list-style: none;
 }
+/* Scrollbar entière */
+::-webkit-scrollbar {
+  width: 10px; /* largeur de la barre verticale */
+  height: 10px; /* hauteur de la barre horizontale */
+}
+
+/* Fond de la scrollbar */
+::-webkit-scrollbar-track {
+  background: $bg-color; /* couleur du fond */
+}
+
+/* Curseur de la scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #0284c7;/* couleur du curseur */
+  border-radius: 10px;
+}

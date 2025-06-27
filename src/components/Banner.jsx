@@ -17,7 +17,7 @@ const HeroSimpleNoMotion = () => {
 
       <div className="hero-buttons">
         <a
-          href="https://github.com/medtijabou"
+          href="https://stormprotection.fr"
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-primary"
