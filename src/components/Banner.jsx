@@ -39,7 +39,7 @@ const HeroSimpleNoMotion = () => {
 
       <div className="hero-social">
         <a
-          href="https://www.linkedin.com/in/ton-profil-linkedin" // ✅ À remplacer par ton vrai lien LinkedIn
+          href="https://www.linkedin.com/in/mohamed-boulyou-tijari-642421337/" // ✅ À remplacer par ton vrai lien LinkedIn
           aria-label="LinkedIn"
           className="social-link"
           target="_blank"
