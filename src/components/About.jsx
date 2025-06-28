@@ -23,29 +23,35 @@ const About = () => {
     return () => observer.disconnect();
   }, []);
 
-  const personalInfo = [
-    {
-      icon: <MapPin className="icon" />,
-      label: "Adresse",
-      value: "9 Impasse collet 13, Marseille 3eme",
-    },
-    {
-      icon: <Mail className="icon" />,
-      label: "E-mail",
-      value: "Contact@mstecnologia.fr",
-    },
-    {
-      icon: <Phone className="icon" />,
-      label: "Téléphone",
-      value: "06-58-93-85-80",
-    },
-    {
-      icon: <Calendar className="icon" />,
-      label: "Date de Naissance",
-      value: "27/10/1986",
-    },
-    { icon: <ShieldCheck className="icon" />, label: "Permis", value: "B" },
-  ];
+  
+    const personalInfo = [
+  {
+    icon: <MapPin className="icon" />,
+    label: "Ville",
+    value: "Marseille, France",
+  },
+  {
+    icon: <Mail className="icon" />,
+    label: "E-mail",
+    value: "contact@mstecnologia.fr",
+  },
+  {
+    icon: <Phone className="icon" />,
+    label: "Téléphone",
+    value: "Sur demande",
+  },
+  {
+    icon: <Calendar className="icon" />,
+    label: "Âge",
+    value: "38 ans",
+  },
+  {
+    icon: <ShieldCheck className="icon" />,
+    label: "Permis",
+    value: "B",
+  },
+];
+
 
   return (
     <section id="about" className="about-section" ref={infoRef}>
